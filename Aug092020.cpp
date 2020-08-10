@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <set>
 using namespace std;
 
 /*
@@ -12,7 +14,20 @@ return true since 4 + 1 = 5.
 Try to do it in a single pass of the list.
 */
 
+/* Use hash table to store found elements, and search for complements as we go. */
+bool hasTwoSum(vector<int> list, int k) {
+	set<int> table;
+	for (int i = 0; i < list.size(); i++) {
+		if (table.count(k - list[i])) {
+			return true;
+		}
+		table.insert(list[i]);
+	}
+	return false;
+}
+
 int main(int argc, char **argv) {
-	std::cout << "Hello\n";
+	vector<int> list = {4,7,1,-3,2};
+	std::cout << hasTwoSum(list, 3) << '\n';
 	return 0;
 }

@@ -26,6 +26,7 @@ int findUnique(int *arr, int len) {
 
 int main(int argc, char **argv) {
 	int arr[] = {4, 3, 2, 4, 100, 3, 2};
-	std::cout << findUnique(arr,7) << '\n';
+	int len = *(&arr+1)-arr;
+	std::cout << findUnique(arr,len) << '\n';
 	return 0;
 }
