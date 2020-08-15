@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 /*
@@ -18,7 +19,7 @@ f(4) = f(4-1)+f(4-2) = 5
 ...
 f(n) = f(n-1)+f(n-2)
 We can find the n'th Fibonacci number in exponential time recursively, linear time using memoization or
-Markov chain, and constat time using Binet's.
+Markov chain, and much faster time using Binet's. Note that for this problem, f(n) is zero-based.
 */
 
 int numWaysRecursive(int n) {
@@ -40,8 +41,15 @@ int numWaysLinear(int n) {
 	return n1;
 }
 
+int binets(int n) {
+	double x = (1+sqrt(5))/2;
+	double y = (1-sqrt(5))/2;
+	return round((pow(x,n+1)+pow(y,n+1))/sqrt(5));
+}
+
 int main(int argc, char **argv) {
 	std::cout << numWaysRecursive(8) << '\n';
 	std::cout << numWaysLinear(8) << '\n';
+	std::cout << binets(8) << '\n';
 	return 0;
 }
