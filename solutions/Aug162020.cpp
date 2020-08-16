@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <set>
+#include <unordered_set>
 #include <math.h>
 using namespace std;
 
@@ -25,10 +25,10 @@ to be integers)
 /*
 We can take O(N) to add the squares of each element in the list to a set. Then, since all integer Pythagorean
 triples have no two sides equal, we can just loop over all (a,b) pairs and look up if a^2 + b^2 is in the set.
-Overall runtime: O(N^2).
+O(N^2), O(N) space
 */
 bool hasPythagTriple(vector<int> list) {
-	set<int> table;
+	unordered_set<int> table;
 	for (int i = 0; i < list.size(); i++) table.insert(list[i]*list[i]);
 	for (int i = 0; i < list.size(); i++) {
 		for (int j = i+1; j < list.size(); j++) {
