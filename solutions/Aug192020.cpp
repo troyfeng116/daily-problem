@@ -37,11 +37,11 @@ bool hasCycle(vector<vector<int> > adj) {
 	return false;
 }
 
+/* Utility graph functions. */
 void addEdge(vector<vector<int> > *adj, int u, int v) {
 	(*adj)[u].push_back(v);
 	(*adj)[v].push_back(u);
 }
-
 vector<vector<int> > makeGraph(int numNodes) {
 	vector<vector<int> > adj;
 	for (int i = 0; i < numNodes; i++) {
