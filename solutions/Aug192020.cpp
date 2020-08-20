@@ -8,6 +8,13 @@ Given an undirected graph, determine if a cycle exists in the graph.
 Can you solve this in linear time, linear space?
 */
 
+/*
+DFS: For each unvisited node u, DFS with all adjacent (u,v). Since undirected and adj list contains
+both (u,v) and (v,u), make sure to pass parent u to DFS. If there is an adjacent v that has been
+visited that is not the parent edge (parent,u) that called DFS, return true (there is cycle). Else,
+if all adjacent nodes don't lead to cycles in DFS, return false.
+*/
+
 /* Following the edge (parent,u) has brought us to this step of dfs. */
 bool dfs(vector<vector<int> > adj, int u, int parent, bool *visited) {
 	visited[u] = true;
