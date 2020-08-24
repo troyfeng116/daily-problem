@@ -55,7 +55,7 @@ string toppleDominoes1(string state) {
 			noneToppled = false;
 			state.replace(i+1,1,"r");
 		}
-		else if (state.at(mirror) == 'L' && isSafe(state, mirror, false)) {
+		if (state.at(mirror) == 'L' && isSafe(state, mirror, false)) {
 			noneToppled = false;
 			state.replace(mirror-1, 1, "l");
 		}
@@ -101,9 +101,6 @@ string toppleDominoes2(string state) {
 			}
 		}
 		else index--;
-	}
-	for (int i = 0; i < state.length(); i++) {
-		std::cout << distToR[i] << " " << distToL[i] << '\n';
 	}
 	for (int i = 0; i < state.length(); i++) {
 		if (distToR[i] == 0 && distToL[i] == 0) ;
