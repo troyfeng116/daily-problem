@@ -6,6 +6,7 @@ Implement a queue class using two stacks. A queue is a data structure that suppo
 should support the enqueue and dequeue methods like a standard queue.
 */
 
+/* STACK STRUCT */
 typedef struct StackNode *Stack;
 struct StackNode {
     int val;
@@ -27,6 +28,7 @@ int pop(Stack *s) {
     return ans;
 }
 
+/* QUEUE STRUCT: use a back and front stack. */
 struct Queue {
     Stack back;
     Stack front;
@@ -56,6 +58,7 @@ int pop_front(Queue *q) {
 }
 
 int main(int argc, char **argv) {
+/* STACK TESTING */
     Stack s = NULL;
     push(&s, 1);
     push(&s, 5);
@@ -65,6 +68,7 @@ int main(int argc, char **argv) {
     std::cout << pop(&s) << '\n';
     std::cout << pop(&s) << '\n';
 
+/* QUEUE TESTING */
     Queue *q = createQueue();
     push_back(q, 5);
     push_back(q, 1);
