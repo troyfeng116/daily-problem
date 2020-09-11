@@ -38,7 +38,7 @@ Node createNode(int val) {
     return newNode;
 }
 
-/* APPROACH 1: Recursion, pass depth up using pointers. */
+/* APPROACH 1: Recursion, pass depth up using pointers. Each node visited at most once: O(N) */
 int deepestNodeAux(Node root, int *dist) {
     std::cout << root->val << " at level " << *dist << '\n';
     if (root->left == NULL && root->right == NULL) {
