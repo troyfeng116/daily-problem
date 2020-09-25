@@ -23,7 +23,7 @@ void print(vector<vector<string> > ans) {
     }
 }
 
-/* APPROACH 1: Place anagrams into buckets. Hash by sorted string. */
+/* APPROACH 1: Place anagrams into buckets. Hash by sorted string. O(N) space, O(N*M) time */
 string sortString(string str) {
     string copy = str;
     sort(copy.begin(), copy.end());
