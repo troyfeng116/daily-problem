@@ -45,10 +45,45 @@ vector<int> findIntersection(vector<int> nums1, vector<int> nums2) {
     return intersection;
 }
 
+/* APPROACH 2: Sort smaller array first, then binary search. O(min((M+N)logN, (M+N)log(M))) */
+int search(vector<int> nums, int target, int l, int r) {
+    if (l > r) return -1;
+    int m = (l+r)/2;
+    if (target < nums[m]) return search(nums, target, l, m-1);
+    if (target > nums[m]) return search(nums, target, m+1, r);
+    return m;
+}
+vector<int> findIntersection2(vector<int> nums1, vector<int> nums2) {
+    unordered_set<int> found;
+    vector<int> intersection;
+    int m = nums1.size(), n = nums2.size();
+    if (m < n) {
+        std::sort(nums1.begin(), nums1.end());
+        for (int i = 0; i < n; i++) {
+            if (search(nums1, nums2[i], 0, m-1) >= 0 && found.count(nums2[i]) == 0) {
+                found.insert(nums2[i]);
+                intersection.push_back(nums2[i]);
+            }
+        }
+    }
+    else {
+        std::sort(nums2.begin(), nums2.end());
+        for (int i = 0; i < m; i++) {
+            if (search(nums2, nums1[i], 0, n-1) >= 0 && found.count(nums1[i]) == 0) {
+                found.insert(nums1[i]);
+                intersection.push_back(nums1[i]);
+            }
+        }
+    }
+    return intersection;
+}
+
 int main(int argc, char **argv) {
     vector<int> nums1 = {4,9,5};
     vector<int> nums2 = {9,4,9,8,4,18,8};
     vector<int> intersection = findIntersection(nums1, nums2);
+    print(intersection);
+    vector<int> intersection2 = findIntersection2(nums1, nums2);
     print(intersection);
     return 0;
 }
