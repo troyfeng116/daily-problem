@@ -68,7 +68,9 @@ void printStack(Stack1 *s) {
 
 /* APPROACH 2: O(1) space. Store min in one variable.
 -push: if val < min, we can store 2*val-min in the stack and set min=val.
--pop: if top < min, update min = 2*min-top.  */
+-pop: if top < min, return min and update min = 2*min-top. Else return top.
+Notes: min will always hold the min element. All elements greater than min get pushed normally.
+Any elements less than min will be 1. stored in min and 2. pushed as 2*prevMin-newMin. This way, */
 struct Stack2 {
     int min;
     stack<int> s;
