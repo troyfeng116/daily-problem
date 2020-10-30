@@ -49,6 +49,9 @@ Node lowestCommonAncestor(Node root, Node A, Node B) {
 /* APPROACH 2: If no parent pointer, we would dfs to return path from root to A and B, then compare the
 paths and return first point where equal. */
 
+/* APPROACH 3: If BST, use BST properties: lowest common ancestor must be first node from root that is
+between targets. */
+
 int main(int argc, char **argv) {
     Node root = new TreeNode(1,
         new TreeNode(2),
