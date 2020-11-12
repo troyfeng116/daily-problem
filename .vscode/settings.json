@@ -67,5 +67,10 @@
         "vector": "cpp",
         "bit": "cpp",
         "stack": "cpp"
+    },
+    "editor.formatOnSave": false,
+    "launch": {
+        "configurations": [],
+        "compounds": []
     }
 }
