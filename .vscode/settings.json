@@ -69,6 +69,7 @@
         "stack": "cpp"
     },
     "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
     "launch": {
         "configurations": [],
         "compounds": []
