@@ -73,5 +73,6 @@
     "launch": {
         "configurations": [],
         "compounds": []
-    }
+    },
+    "editor.codeActionsOnSave": null,
 }
